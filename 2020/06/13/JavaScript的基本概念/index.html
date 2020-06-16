@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JavaScript的基本概念 | Szetta - blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="包括基本类型和引用类型的值、变量作用域与垃圾收集机制">
+  <meta name="description" content="包括Javascript变量、数据类型等基本概念。">
 <meta name="keywords" content="技术博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript的基本概念">
 <meta property="og:url" content="http://yoursite.com/2020/06/13/JavaScript的基本概念/index.html">
 <meta property="og:site_name" content="Szetta - blog">
-<meta property="og:description" content="包括基本类型和引用类型的值、变量作用域与垃圾收集机制">
+<meta property="og:description" content="包括Javascript变量、数据类型等基本概念。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-16T14:19:36.148Z">
+<meta property="og:updated_time" content="2020-06-16T14:22:29.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的基本概念">
-<meta name="twitter:description" content="包括基本类型和引用类型的值、变量作用域与垃圾收集机制">
+<meta name="twitter:description" content="包括Javascript变量、数据类型等基本概念。">
   
     <link rel="alternative" href="/atom.xml" title="Szetta - blog" type="application/atom+xml">
   
@@ -182,7 +182,7 @@
 
   <div class="article-entry" itemprop="articleBody">
     
-    <p>包括基本类型和引用类型的值、变量作用域与垃圾收集机制<br><a id="more"></a></p>
+    <p>包括Javascript变量、数据类型等基本概念。<br><a id="more"></a></p>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>ECMAScript的变量是<strong>松散类型</strong>的，即可以用来保存任何类型的数据。每个变量仅仅是一个用于保存值的占位符。这意味着在定义变量时，我们不需要指定该变量的类型。在JavaScript中，我们可以用 <strong>var</strong> 操作符定义一个变量名。如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"Hello, JavaScript!"</span>;</span><br></pre></td></tr></table></figure></p>
 <p>在ECMAScript6中，声明变量的操作符新增了 <strong>let</strong> 和 <strong>const</strong> 类型。使用这两个操作符声明的变量仅在其所在的代码块里生效。其中，const 声明的变量是常量。一旦声明后则不能改变，所以所有的 const 变量都需要在声明时进行初始化；而 let 声明的变量值可以改变。如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> num1 = <span class="string">"let"</span>;</span><br><span class="line">  <span class="keyword">const</span> num2 = <span class="string">"const"</span>;</span><br><span class="line">  <span class="keyword">var</span> num3 = <span class="string">"var"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// Error: num1 is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(num2); <span class="comment">// Error: num2 is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(num3);</span><br></pre></td></tr></table></figure></p>
 <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>ECMAScript中有5种基本数据类型及1种复杂数据类型。<br>5种基本数据类型：Undefined 、Null 、Boolean 、Number和 String。<br>1种负责数据类型：Object。<br>由于ECMAScript是松散类型的，所以需要一种方法来检测给定变量的数据类型，即<strong>typeof</strong>操作符，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> message = <span class="string">"str"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> message); <span class="comment">// Output:"string"</span></span><br></pre></td></tr></table></figure></p>
