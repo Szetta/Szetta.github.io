@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JavaScript的基本概念 | Szetta - blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="包括Javascript变量、数据类型等基本概念。">
+  <meta name="description" content="包括Javascript变量、数据类型、操作符、函数等基本概念。">
 <meta name="keywords" content="技术博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript的基本概念">
 <meta property="og:url" content="http://yoursite.com/2020/06/13/JavaScript的基本概念/index.html">
 <meta property="og:site_name" content="Szetta - blog">
-<meta property="og:description" content="包括Javascript变量、数据类型等基本概念。">
+<meta property="og:description" content="包括Javascript变量、数据类型、操作符、函数等基本概念。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-16T14:22:29.995Z">
+<meta property="og:updated_time" content="2020-06-20T14:23:24.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的基本概念">
-<meta name="twitter:description" content="包括Javascript变量、数据类型等基本概念。">
+<meta name="twitter:description" content="包括Javascript变量、数据类型、操作符、函数等基本概念。">
   
     <link rel="alternative" href="/atom.xml" title="Szetta - blog" type="application/atom+xml">
   
@@ -182,7 +182,7 @@
 
   <div class="article-entry" itemprop="articleBody">
     
-    <p>包括Javascript变量、数据类型等基本概念。<br><a id="more"></a></p>
+    <p>包括Javascript变量、数据类型、操作符、函数等基本概念。<br><a id="more"></a></p>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>ECMAScript的变量是<strong>松散类型</strong>的，即可以用来保存任何类型的数据。每个变量仅仅是一个用于保存值的占位符。这意味着在定义变量时，我们不需要指定该变量的类型。在JavaScript中，我们可以用 <strong>var</strong> 操作符定义一个变量名。如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"Hello, JavaScript!"</span>;</span><br></pre></td></tr></table></figure></p>
 <p>在ECMAScript6中，声明变量的操作符新增了 <strong>let</strong> 和 <strong>const</strong> 类型。使用这两个操作符声明的变量仅在其所在的代码块里生效。其中，const 声明的变量是常量。一旦声明后则不能改变，所以所有的 const 变量都需要在声明时进行初始化；而 let 声明的变量值可以改变。如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> num1 = <span class="string">"let"</span>;</span><br><span class="line">  <span class="keyword">const</span> num2 = <span class="string">"const"</span>;</span><br><span class="line">  <span class="keyword">var</span> num3 = <span class="string">"var"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// Error: num1 is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(num2); <span class="comment">// Error: num2 is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(num3);</span><br></pre></td></tr></table></figure></p>
 <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>ECMAScript中有5种基本数据类型及1种复杂数据类型。<br>5种基本数据类型：Undefined 、Null 、Boolean 、Number和 String。<br>1种负责数据类型：Object。<br>由于ECMAScript是松散类型的，所以需要一种方法来检测给定变量的数据类型，即<strong>typeof</strong>操作符，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> message = <span class="string">"str"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> message); <span class="comment">// Output:"string"</span></span><br></pre></td></tr></table></figure></p>
@@ -284,9 +284,33 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log((&#123;&#125;).toLocaleString()); <span class="comment">// Output: [object Object]</span></span><br><span class="line"><span class="built_in">console</span>.log(([<span class="number">1</span>,<span class="number">2</span>]).toLocaleString()); <span class="comment">// Output: 1,2</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="keyword">new</span> <span class="built_in">Date</span>()).toLocaleString()); <span class="comment">// Output: 2020/6/16 下午10:07:39</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>toString()：用于返回对象的字符串表示</li>
+<li>toString()：用于返回对象的字符串表示；</li>
 <li>valueOf()：返回对象的字符串、数值或布尔值表示。通常与 toString() 方法的返回值相同。</li>
 </ul>
+<h1 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h1><h2 id="位操作符"><a href="#位操作符" class="headerlink" title="位操作符"></a>位操作符</h2><p>ECMAScript 中的所有数值都以 IEEE-754 64 位格式存储，但位操作符并不直接操作 64 位的值。而是先将64位的值转换成32位的整数，然后执行操作，最后再将结果转换回 64 位。对于开发人员来说，使用位操作符操作的就是32位整数。<br>默认情况下，ECMAScript 中的所有整数都是有符号整数，32 位中的前 31 位用于表示整数的值第32位用于表示数值的符号（0为正数，1为负数）。正数以纯二进制格式存储，负数以补码形式存储（负数绝对值取反加1）。<br>在 ECMAScript 中，当对数值应用位操作符时，特殊的 NaN 和 Infinity 值都会被当成 0 来处理。如果对非数值应用位操作符，会先使用 Number() 函数将该值转换为一个数值，然后再进行操作。</p>
+<ul>
+<li><strong>NOT</strong><br>按位非操作符由 ~ 表示，返回的结果是数值的反码（操作数的负值-1）。</li>
+<li><strong>AND</strong><br>按位与操作符由  &amp; 表示，将两个数值的每一位对齐，执行与操作。</li>
+<li><strong>OR</strong><br>按位或操作符由 | 表示，将两个数值的每一位对齐，执行或操作。</li>
+<li><strong>XOR</strong><br>按位异或操作符由 ^ 表示，将两个数值的每一位对齐，在位上只有一个1时才返回1。</li>
+<li><strong>&lt;&lt;</strong><br>左移操作符由 &lt;&lt; 表示，这个操作符会将数值的所有位向左移动指定的位数，以0来填充空位。</li>
+<li><strong>&gt;&gt;</strong><br>有符号的右移操作符由 &gt;&gt; 表示，这个操作符会将数值向右移动，但保留符号位（正负不变），并以符号位来填充空位。</li>
+<li><strong>&gt;&gt;&gt;</strong><br>无符号右移操作符由 &gt;&gt;&gt; 表示，这个操作符会将数值的所有 32 位都向右移动，并以0来填充空位</li>
+</ul>
+<h2 id="相等操作符"><a href="#相等操作符" class="headerlink" title="相等操作符"></a>相等操作符</h2><h3 id="相等："><a href="#相等：" class="headerlink" title="相等：==/!="></a>相等：==/!=</h3><p>以上两个为相等操作符。它们都会先转换操作数的类型，然后再比较它们的相等性：</p>
+<ul>
+<li>如果有一个操作数是布尔值，则在比较相等性之前先将其转换为数值；</li>
+<li>如果一个操作数是字符串，另一个操作数是数值，在比较相等性之前先将字符串转换为数值；</li>
+<li>如果一个操作数是对象，另一个操作数不是，则调用对象的 valueOf() 方法转化后进行比较<br>相等操作符比较时执行的规则：</li>
+<li>null 和 undefined 相等</li>
+<li>在比较相等性之前，不能将 null 和 undefined 转换成其他任何值</li>
+<li>如果有一个操作数是 NaN ，则相等操作符返回 false，不相等操作符返回 true，没有例外（NaN不等于自身）</li>
+<li>如果两个操作数都是对象，则比较它们是不是同一个对象。如果两个操作数都指向同一个对象，<br>则返回 true ；否则 false：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">name</span>: <span class="string">"tom"</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> b = &#123; <span class="attr">name</span>: <span class="string">"tom"</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> c = a;</span><br><span class="line"><span class="built_in">console</span>.log(a == b); <span class="comment">// Output:false</span></span><br><span class="line"><span class="built_in">console</span>.log(a == c); <span class="comment">// Output:true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="全等："><a href="#全等：" class="headerlink" title="全等： ===/!=="></a>全等： ===/!==</h3><p>全等操作符的比较规则与相等操作符同样，但是它在比较时不会对其进行任何转换。通常为了保持代码中数据类型的完整性，多使用全等操作符。</p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>ECMAScript 函数的参数与参数的类型无关，即使传进来的参数与指定的个数或数据类型不同，也不会有问题。之所以会这样，原因是 ECMAScript 中的参数在内部是用一个数组来表示的，在函数体内可以通过 arguments 对象来访问这个参数数组，从而获取传递给函数的每一个参数。arguments数组的长度仅与实际传进来的参数个数有关，与函数事先定义的参数个数无关。<br>arguments 的值永远与对应命名参数的值保持同步。如果修改 arguments 的值，则函数中获取到的参数也会随之改变。但这并不是指 arguments 和函数参数访问了相同的内存空间。它们的内存空间是独立的，但是值是同步的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doAdd</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">   <span class="built_in">arguments</span>[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>] + num2);</span><br><span class="line">&#125;</span><br><span class="line">doAdd(<span class="number">10</span>, <span class="number">20</span>); <span class="comment">// Output: 10+10=20</span></span><br></pre></td></tr></table></figure></p>
+<p>因为 ECMAScript 函数的参数与参数的类型无关，所以函数没有重载。</p>
 
     
 
